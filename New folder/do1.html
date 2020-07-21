@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Document</title>
+<style type="text/css">
+body{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+.container{
+text-align:center;
+}
+.hexColor{
+text-transform:capitalize;
+}
+.hex{
+font-size:3rem;
+}
+
+.hexBtn{
+padding:0.25rem 0.5rem;
+border:3px solid #f15025;
+border-radius:7px;
+color:#f15025;
+background:rgba(0,0,0,0.6);
+font-size:1.5rem;
+text-transform:capitalize;
+cursor:pointer;
+outline:none;
+}
+.hexBtn:hover{
+background:rgb(0,0,0);
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h2 class="hexColor">this hex color code is: <span class="hex"></span></h2>
+<button type="button" class="hexBtn">Press here to change color</button>
+</div>
+<script type="text/javascript">
+const hexNumbers  = [0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F'];
+const hexBtn=document.querySelector('.hexBtn');
+const bodyBcg=document.querySelector('body');
+const hex=document.querySelector('.hex');
+hexBtn.addEventListener('click',getHex);
+function getHex (){
+let hexCol='#';
+for(let i=0;i<6;i++){
+let random=Math.floor(Math.random()*hexNumbers.length);
+hexCol +=hexNumbers[random];
+}
+bodyBcg.style.backgroundColor=hexCol;
+hex.innerHTML=hexCol;
+}
+</script>
+</body>
+</html>
